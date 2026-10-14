@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
-
+import API_URL from "../api";
 function Booking({ service, onBack }) {
     const [providers, setProviders] = useState([]);
     const [providerId, setProviderId] = useState("");
@@ -28,7 +28,7 @@ function Booking({ service, onBack }) {
             }
 
             const response = await axios.get(
-                "http://localhost:8080/providers",
+                `${API_URL}/providers`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -70,7 +70,7 @@ function Booking({ service, onBack }) {
                 }
 
                 const response = await axios.get(
-                    "http://localhost:8080/providers",
+                    `${API_URL}/providers`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -223,7 +223,7 @@ function Booking({ service, onBack }) {
 
         try {
             await axios.post(
-                "http://localhost:8080/bookings",
+                `${API_URL}/bookings`,
                 {
                     customerId: user.id,
                     serviceId: service.id,

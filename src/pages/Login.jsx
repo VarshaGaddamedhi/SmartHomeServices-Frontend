@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function Login({ onLogin }) {
 
@@ -11,7 +12,7 @@ function Login({ onLogin }) {
 
         try {
             const response = await axios.post(
-                "http://localhost:8080/auth/login",
+                `${API_URL}/auth/login`,
                 {
                     email: email,
                     password: password

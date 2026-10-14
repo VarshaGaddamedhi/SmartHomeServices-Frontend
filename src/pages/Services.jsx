@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function Services({ onBookService }) {
     const [services, setServices] = useState([]);
@@ -21,7 +22,7 @@ function Services({ onBookService }) {
             }
 
             const response = await axios.get(
-                "http://localhost:8080/services",
+                `${API_URL}/services`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

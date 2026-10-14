@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function Dashboard({ onViewServices, onViewBookings }) {
     const storedUser = localStorage.getItem("user");
@@ -31,7 +32,7 @@ function Dashboard({ onViewServices, onViewBookings }) {
                 }
 
                 const response = await axios.get(
-                    "http://localhost:8080/bookings",
+                    `${API_URL}/bookings`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`

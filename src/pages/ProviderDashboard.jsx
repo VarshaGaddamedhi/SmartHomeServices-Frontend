@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function ProviderDashboard() {
     const [bookings, setBookings] = useState([]);
@@ -26,7 +27,7 @@ function ProviderDashboard() {
         const fetchBookings = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:8080/bookings",
+                    `${API_URL}/bookings`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -66,7 +67,7 @@ function ProviderDashboard() {
         const fetchProvider = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:8080/providers",
+                    `${API_URL}/providers`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -115,7 +116,7 @@ function ProviderDashboard() {
             setError("");
 
             await axios.put(
-                `http://localhost:8080/bookings/${bookingId}/status`,
+                `${API_URL}/bookings/${bookingId}/status`,
                 null,
                 {
                     params: { status },

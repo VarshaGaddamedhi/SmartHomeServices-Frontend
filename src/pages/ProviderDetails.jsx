@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import API_URL from "../api";
 
 function ProviderDetails({ onComplete }) {
 
@@ -44,7 +45,7 @@ function ProviderDetails({ onComplete }) {
             const token = localStorage.getItem("token");
 
 const response = await axios.post(
-    "http://localhost:8080/providers",
+    `${API_URL}/providers`,
     providerData,
     {
         headers: {
